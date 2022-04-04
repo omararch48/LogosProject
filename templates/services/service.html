@@ -4,29 +4,45 @@
 {% load static %}
 
 
-{% if product.active == '0' %}
-    {% block title %}{{ service.name }}{% endblock %}
-{% else %}
-    {% block title %}404{% endblock %}
-{% endif %}
+{% block title %}
+    {% if service.active == '0' %}
+        {{ service.name|title }}
+    {% else %}
+        404
+    {% endif %}
+{% endblock %}
 
 
 {% block content %}
     <main>
         {% if service.active == '0' %}
+
+            <h2 class="bgc-red text-color-white title-main-presentation">
+                {{ service.name|title }}
+            </h2>
             <div class="product-info-container">
-                <h2 class="second-title">{{ service.name }}</h2>
                 {% if service.image %}
-                    <div class="product-image-container">
-                        <img src="{{ product.image.url }}" alt="product Logos Institute">
-                    </div>
+                    <img src="{{ service.image.url }}" alt="product Logos Institute">
+                {% else %}
+                    <img src="{% static 'core/img/png/isotipo_sin_fondo.png' %}" alt="product Logos Institute">
                 {% endif %}
-                <p>
-                    {{ service.description|safe }}
-                </p>
+                <div class="product-info-subcontainer">
+                    <p>
+                        {{ service.description|safe }}
+                    </p>
+                </div>
             </div>
+
+
+
+
+
+
+
+
+
         {% else %}
-            <h2 class="bgc-red text-color-white title-main-presentation">Productos</h2>
+            <h2 class="bgc-red text-color-white title-main-presentation">404</h2>
             <div class="margin-top margin-bottom text-justify text-margin">
                 <p class="flex-center" text-align="center">
                     Lo sentimos, este contenido no está disponible &#x1F614;

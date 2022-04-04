@@ -81,6 +81,18 @@
 
 /* Product */
 
+.product-info-container {
+    justify-content: space-between;
+    flex-direction: row;
+}
+
+.product-info-container img {
+    width: 40%;
+}
+
+.product-info-subcontainer {
+    width: 60%;
+}
 
 
 /*********************************************************/
