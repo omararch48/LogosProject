@@ -1,0 +1,43 @@
+{% extends 'core/base.html' %}
+
+
+{% load static %}
+
+
+{% if product.active == '0' %}
+    {% block title %}{{ service.name }}{% endblock %}
+{% else %}
+    {% block title %}404{% endblock %}
+{% endif %}
+
+
+{% block content %}
+    <main>
+        {% if service.active == '0' %}
+            <div class="product-info-container">
+                <h2 class="second-title">{{ service.name }}</h2>
+                {% if service.image %}
+                    <div class="product-image-container">
+                        <img src="{{ product.image.url }}" alt="product Logos Institute">
+                    </div>
+                {% endif %}
+                <p>
+                    {{ service.description|safe }}
+                </p>
+            </div>
+        {% else %}
+            <h2 class="bgc-red text-color-white title-main-presentation">Productos</h2>
+            <div class="margin-top margin-bottom text-justify text-margin">
+                <p class="flex-center" text-align="center">
+                    Lo sentimos, este contenido no está disponible &#x1F614;
+                </p>
+                <div class="flex-center margin-top margin-bottom">
+                    <img class="width-30pr" src="{% static 'core/img/png/isotipo_sin_fondo.png' %}" alt="logos institue logo">
+                </div>
+                <p class="flex-center">
+                    <a class="clear-link color-black" href="{% url 'services' %}">puedes continuar explorando nuestros productos aquí</a>
+                </p>
+            </div>
+        {% endif %}
+    </main>
+{% endblock %}

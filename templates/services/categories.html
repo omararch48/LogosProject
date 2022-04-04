@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+
+
+{% load static %}
+
+
+{% block title %}Servicios{% endblock %}
+
+
+{% block content %}
+    <h2 class="bgc-green text-color-white title-main-presentation">Servicios</h2>
+    <main>
+        <section class="services-categories flex-center">
+            {% if categories|length == 1 %}
+            <div class="categories-grid-1">
+            {% else %}
+            <div class="categories-grid-2">
+            {% endif %}
+                {% for category in categories %}
+                <div class="service-container {% cycle 'bgc-red' 'bgc-green' %} flex-center">
+                    <h2>{{ category.name }}</h2>
+                    <img src="{% static 'core/img/png/primario_sin_fondo_3.png' %}" alt="Logos service">
+                    <div class="service-title">
+                        <a class="clear-link" href="{% url 'services_list' category.name %}">
+                            Ver todo
+                        </a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'core/base.html' %}
+
+
+{% load static %}
+
+
+{% block title %}FAQ{% endblock %}
+
+
+{% block content %}
+    <main>
+        <h2 class="bgc-red text-color-white title-main-presentation">Preguntas Frecuentes</h2>
+        <section class="section-qa mon">
+            
+            {% for faq_video in faqs_videos %}
+                
+                {% if faq_video %}
+
+                    <div class="faq-video flex-center">
+                        <video class="logos-video" src="{{ faq_video.video.url }}" controls>
+                            <p>Su navegador no soporta vídeos</p>
+                        </video>
+                    </div>
+
+                {% endif %}
+
+            {% endfor %}
+
+
+            {% for faq in faqs %}
+                {% if faq.active == '0' %}
+                    <div class="qa {% cycle 'qa-green' 'qa-red' %}">
+                        <div class="question {% cycle 'qr' 'ql' %}">
+                            <h3>
+                                {{ faq.question }}
+                            </h3>
+                        </div>
+                        <div class="answer">
+                            <p>
+                                {{ faq.answer | safe }}
+                            </p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}            
+        </section>
+    </main>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+
+
+{% load static %}
+
+
+{% block title %}Testimonios{% endblock %}
+
+
+{% block content %}
+    <main>
+        <h2 class="bgc-green text-color-white title-main-presentation">Testimonios</h2>
+        <section class="section-testimonials flex-center mon">
+            {% for testimonial in testimonials %}
+                <div class="testimonial">
+                    <div class="testimonial-head">
+                        <h4>
+                            {{ testimonial.testimonial }}
+                        </h4>
+                        <video class="logos-video" src="{{ testimonial.video.url }}" controls>
+                            <p>Su navegador no soporta vídeos</p>
+                        </video>
+                    </div>
+                    <div class="testimonial-message">
+                        {{ testimonial.testimonial_msg }}
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+    </main>
+{% endblock %}

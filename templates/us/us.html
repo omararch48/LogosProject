@@ -1,0 +1,58 @@
+{% extends 'core/base.html' %}
+
+
+{% load static %}
+
+
+{% block title %}Nosotros{% endblock %}
+
+
+{% block content %}
+    <div class="hero-container hero-container-us">
+        <div class="hero-image">
+            <img class="mon hero-img-first" src="{% static 'core/img/png/primario_sin_fondo_3.png' %}" alt="Logos-Institute">            
+            <img class="mon hero-img-second" src="{% static 'core/img/png/secundario_sin_fondo_3.png' %}" alt="Logos-Institute">
+        </div>            
+    </div>
+
+    <main>
+        {% for text in us_texts %}
+            <section class="us-section">
+                <div class="us-title">
+                    <h2 class="second-title margin-top">
+                        {{ text.text_name|title }}
+                    </h2>
+                </div>
+
+                <div class="us-container {% cycle 'us-left' 'us-right' %} {% cycle 'bgc-green' 'bgc-red' %}">
+                    <div class="us-text flex-center">
+                        {% if text.text|length > 150 %}
+                            <a class="clear-link" href="{% url 'text' text.id %}">
+                                {{ text.text|slice:':150'|safe }}...
+                            </a>
+                        {% else %}
+                            <a class="clear-link" href="{% url 'text' text.id %}">
+                                {{ text.text|safe }}
+                            </a>
+                        {% endif %}
+                    </div>
+                    <div class="us-media flex-center">
+                        {% if text.video %}
+                            <video class="logos-video" src="{{ text.video.url }}" controls>
+                                <p>Su navegador no soporta vídeos</p>
+                            </video>
+                        {% elif text.image %}
+                            <img src="{{ text.image.url }}" alt="Logos Us Image">
+                        {% else %}
+                            <img src="{% static 'core/img/png/primario_sin_fondo_3.png' %}" alt="Logos Us Image">
+                        {% endif %}
+                    </div>
+                </div>
+
+
+
+
+            </section>
+        {% endfor %}
+    </main>
+{% endblock %}

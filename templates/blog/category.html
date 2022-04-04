@@ -1,0 +1,56 @@
+{% extends 'core/base.html' %}
+
+
+{% load static %}
+
+
+{% block title %}{{ category.name|title }}{% endblock %}
+
+
+{% block content %}
+    <main>
+        <h2 class="bgc-green text-color-white title-main-presentation">Blog</h2>
+        <h3 class="second-title margin-top">
+            Conoce nuestros artículos sobre {{ category.name|lower }}
+        </h3>
+        <div class="blog-list mon">
+            {% for post in category.post_set.all %}
+                {% if post.active == '0' %}
+                    <div class="blog-element-list {% cycle 'blog-left' 'blog-rigth' %}">
+                        <div class="blog-element-image">
+                            {% if post.image %}
+                                <img class="image-shadow" src="{{ post.image.url }}" alt="logos institue logo">
+                            {% else %}
+                                <img src="{% static 'core/img/png/isotipo_sin_fondo.png' %}" alt="logos institue logo">
+                            {% endif %}
+                        </div>
+                        <div class="blog-element-description">
+                            <h3 class="blog-element-title">
+                                {{ post.title }}
+                            </h3>
+                            <p>
+                                {% if post.content|length > 100 %}
+                                    {{ post.content|slice:':100'|safe }} ...
+                                {% else %}
+                                    {{ post.content|safe }}
+                                {% endif %}
+                            </p>
+                            <p>
+                                <a class="clear-link" href="{% url 'post' post.id %}">
+                                    <span> Leer más </span>
+                                </a>
+                            </p>
+                            <div class="blog-element-category">
+                                {% for category in post.categories.all %}
+                                    <a class="clear-link" href="{% url 'category' category.id %}">
+                                        {{ category.name|upper }}
+                                    </a>
+                                {% endfor %}                    
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}            
+            {% endfor %}
+        </div>        
+    </main>
+{% endblock %}

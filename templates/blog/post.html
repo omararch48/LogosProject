@@ -1,0 +1,59 @@
+{% extends 'core/base.html' %}
+
+
+{% load static %}
+
+
+{% if product.active == '0' %}
+    {% block title %}Acerca de{% endblock %}
+{% else %}
+    {% block title %}404{% endblock %}
+{% endif %}
+
+
+{% block content %}
+    <main>
+        <h2 class="bgc-red text-color-white title-main-presentation">Blog</h2>
+        {% if post.active == '0' %}
+            <h3 class="second-title margin-top">
+                {{ post.title }}
+            </h3>
+            <h6 class="flex-center">
+                {{ post.published | date:"SHORT_DATE_FORMAT" }}
+            </h6>
+            <h4 class="flex-center">
+                por {{ post.author }}
+            </h4>
+            <div class="post-image flex-center margin-top margin-bottom">
+                {% if post.image %}
+                    <img class="image-shadow" src="{{ post.image.url }}" alt="logos institue logo">
+                {% else %}
+                    <img src="{% static 'core/img/png/isotipo_sin_fondo.png' %}" alt="logos institue logo">
+                {% endif %}
+            </div>
+            <div class="margin-top margin-bottom text-justify text-margin">
+                {{ post.content|safe }}
+            </div>
+            
+            <div class="blog-element-category">
+                {% for category in post.categories.all %}
+                <a class="clear-link" href="{% url 'category' category.id %}">
+                    {{ category.name|upper }}
+                </a>
+                {% endfor %}                    
+            </div>
+        {% else %}
+            <div class="margin-top margin-bottom text-justify text-margin">
+                <p class="flex-center" text-align="center">
+                    Lo sentimos, este contenido no está disponible &#x1F614;
+                </p>
+                <div class="flex-center margin-top margin-bottom">
+                    <img class="width-30pr" src="{% static 'core/img/png/isotipo_sin_fondo.png' %}" alt="logos institue logo">
+                </div>
+                <p class="flex-center">
+                    <a class="clear-link color-black" href="{% url 'blog' %}">puedes continuar explorando nuestro blog aquí</a>
+                </p>
+            </div>
+        {% endif %}
+    </main>
+{% endblock %}

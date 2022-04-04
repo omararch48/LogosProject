@@ -1,0 +1,79 @@
+{% extends 'core/base.html' %}
+
+
+{% load static %}
+
+
+{% block title %}Acerca de{% endblock %}
+
+
+{% block content %}
+<main>
+    <h2 class="bgc-green text-color-white title-main-presentation">Acerca de Logos Institute</h2>
+    {% if team_dictionary %}
+        <div class="team-modal-container display-none">
+            <div class="team-modal-card">
+                {% for team_member in team_dictionary %}
+                    <div class="team-modal-info display-none">
+                        <div class="team-modal-presentation">
+                            <div class="team-modal-photo flex-center">
+                                {% if post.image %}
+                                    <img src="{{ team_member.image.url }}" alt="Logos Team">
+                                {% else %}
+                                    <img src="{% static 'core/img/jpg/isotipo 1.jpg' %}" alt="Logos Team">
+                                {% endif %}
+                            </div>
+                            <div class="team-modal-position flex-center">
+                                <h4>{{ team_member.member.first_name }} {{ team_member.member.last_name }}</h4>
+                            </div>
+                        </div>
+                        <div class="team-modal-bio flex-center text-justify">
+                            <p>
+                                {{ team_member.bio|safe }}
+                            </p>
+                        </div>
+                        <div class="team-modal-close">
+                            <span>&#xD7 Cerrar</span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="team-container">
+            <div class="team-bar">
+                <div class="left"><i class="fa-solid fa-circle-arrow-left"></i></div>
+                <div class="team-name-bar">
+                    {% for team_member in team_dictionary %}
+                        <h4 class="display-none">{{ team_member.member.first_name }} {{ team_member.member.last_name }}</h4>
+                    {% endfor %}
+                </div>
+                <div class="right"><i class="fa-solid fa-circle-arrow-right"></i></div>
+            </div>
+            <div class="team-card">
+                {% for team_member in team_dictionary %}
+                    <div class="team-info display-none">
+                        <div class="info-photo mon">
+                            {% if post.image %}
+                                <img src="{{ team_member.image.url }}" alt="Logos Team">
+                            {% else %}
+                                <img src="{% static 'core/img/jpg/isotipo 1.jpg' %}" alt="Logos Team">
+                            {% endif %}
+                        </div>
+                        <div class="info-position mon">
+                            <p>
+                                {{ team_member.position }}
+                            </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+            <script src="{% static 'core/js/app-team.js' %}"></script> 
+        </div>  
+    {% endif %}
+</main>
+{% endblock %}
+
+
+
+

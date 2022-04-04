@@ -1,0 +1,61 @@
+{% extends 'core/base.html' %}
+
+
+{% load static %}
+
+
+{% block title %}{{ category_name }}{% endblock %}
+
+
+{% block content %}
+    <h2 class="bgc-green text-color-white title-main-presentation">
+        {{ category_name }}
+    </h2>
+    <main>
+        <h3 class="second-title margin-top">Selecciona tu curso y cumple tus metas</h2>
+        <section class="section-products">
+            {% if services|length == 1 %}
+            <div class="products-container categories-grid-1">
+            {% elif services|length == 2 %}
+            <div class="products-container categories-grid-2">
+            {% else %}
+            <div class="products-container categories-grid-3">
+            {% endif %}
+                {% for service in services %}
+                    {% if service.active == '0' %}
+                        <div class="product-container">
+                            <div class="product-title {% cycle 'bgc-green' 'bgc-red' %}">
+                                <h3>
+                                    {{ service.name|title }}
+                                </h3>
+                            </div>
+                            <div class="product-box">
+                                <div class="product-image mon">
+                                    {% if forloop.counter0|divisibleby:"2" %} 
+                                        <img src="{% static 'core/img/png/terciario_sin_fondo_2.png' %}" alt="image-product">
+                                    {% else %}
+                                        <img src="{% static 'core/img/png/terciario_sin_fondo_1.png' %}" alt="image-product">
+                                    {% endif %}
+                                </div>
+                                <div class="product-text {% cycle 'bgc-green' 'bgc-red' %} mon">
+                                    <div class="product-description">
+                                        <p>
+                                            {% if service.description|length > 80 %}
+                                                {{ service.description|slice:':80'|safe }} ...
+                                            {% else %}
+                                                {{ service.description|safe }}
+                                            {% endif %}
+                                        </p>
+                                    </div>
+                                    <div class="product-link">
+                                        <a class="clear-link" href="{% url 'services_list_detail' service.id service.category %}">Ver más</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+{% endblock %}

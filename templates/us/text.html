@@ -1,0 +1,47 @@
+{% extends 'core/base.html' %}
+
+
+{% load static %}
+
+
+{% block title %}{{ text.text_name|title }}{% endblock %}
+
+
+{% block content %}
+
+    <main>
+
+
+        <section class="us-section">
+            <div class="us-title">
+                <h2 class="second-title margin-top">
+                    {{ text.text_name|title }}
+                </h2>
+            </div>
+        
+
+            <div class="us-media flex-center">
+                {% if text.video %}
+                    <video src="{{ text.video.url }}" controls>
+                        <p>Su navegador no soporta vídeos</p>
+                    </video>
+                {% elif text.image %}
+                    <img src="{{ text.image.url }}" alt="Logos Us Image">
+                {% endif %}
+            </div>
+
+            <div class="us-text-content flex-center">
+                {{ text.text|safe }}
+            </div>
+
+
+
+
+        </section>
+
+
+
+
+
+    </main>
+{% endblock %}

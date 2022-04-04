@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+
+        {% load static %}
+
+        <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Normalize -->        
+        <link rel="stylesheet" href="{% static 'core/css/normalize.css' %}">
+        <!-- Styles -->
+        <link rel="stylesheet" href="{% static 'core/css/styles-300px.css' %}" media="screen and (min-width:0px)">
+        <link rel="stylesheet" href="{% static 'core/css/styles-400px.css' %}" media="screen and (min-width:300px)">
+        <link rel="stylesheet" href="{% static 'core/css/styles-500px.css' %}" media="screen and (min-width:400px)">
+        <link rel="stylesheet" href="{% static 'core/css/styles-600px.css' %}" media="screen and (min-width:500px)">
+        <link rel="stylesheet" href="{% static 'core/css/styles-800px.css' %}" media="screen and (min-width:600px)">
+        <link rel="stylesheet" href="{% static 'core/css/styles-1000px.css' %}" media="screen and (min-width:800px)">
+        <link rel="stylesheet" href="{% static 'core/css/styles-1300px.css' %}" media="screen and (min-width:1000px)">
+        <!-- Fontello -->
+        <link rel="stylesheet" href="{% static 'core/css/fontello/css/fontello.css' %}">
+        <!--  FONT AWESOME  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css">
+        <!-- FONT MUSEOMODERNO -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@100;200;400;700&family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
+        <title>Logos Institute | {% block title %}{% endblock %}</title>
+    </head>
+    <body>
+        
+
+        <header>
+            <nav class="main-nav">            
+                <div class="icon-asidebar button-clicked">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+                <ul class="clear-list">
+                    <li><a class="clear-link mon {% if request.path == '/' %}navbar-active{% endif %}" href="{% url 'homer' %}" >Inicio</a></li>
+                    <li><a class="clear-link mon {% if request.path|slice:':4' == '/us/' %}navbar-active{% endif %}" href="{% url 'us' %}" >Nosotros</a></li>
+                    <li><a class="clear-link mon {% if request.path|slice:':9' == '/contact/' %}navbar-active{% endif %}" href="{% url 'contact' %}" >Contáctanos</a></li>
+                </ul>
+            </nav>
+            <div class="sidebar-menu mon">
+                <nav class="lateral-nav mon">
+                    <img class="logo-lateral-menu" src="{% static 'core/img/jpg/sublogo_1.jpg' %}" alt="Logo-Image">
+                    <ul class="menus mon">
+                        <ul class="lateral-menu mon clear-list">
+                            <li><a class="clear-link" href="{% url 'homer' %}">Inicio</a></li>
+                            <li><a class="clear-link" href="{% url 'us' %}">Nosotros</a></li>
+                            <li><a class="clear-link" href="{% url 'services' %}">Servicios</a></li>
+                            <li><a class="clear-link" href="{% url 'blog' %}">Blog</a></li>
+                        </ul>
+                        <ul class="sublateral-menu mon clear-list">
+                            <li><a class="clear-link" href="{% url 'contact' %}">Contáctanos</a></li>
+                            <li><a class="clear-link" href="{% url 'testimonials' %}">Testimonios</a></li>
+                            <li><a class="clear-link" href="{% url 'faq' %}">Preguntas frecuentes</a></li>
+                            <li><a class="clear-link" href="{% url 'about' %}">Acerca de</a></li>
+                        </ul>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        {% block content %}
+        {% endblock %}
+
+        <footer class="main-footer mon">
+            <div class="footer-container">
+                <div class="footer-social">
+                    <p class="social-title">Siguenos en nuestras redes sociales</p>
+                    <ul class="footer-social-list clear-list">
+                        {% if social_dictionary %}
+                            {% for social in social_dictionary %}
+                                {% if social.active == '0' %}
+                                    {% if forloop.counter0 < 3 %}
+                                    <li>
+                                        <a class="clear-link" href="{{ social.url }}" target="_blank">
+                                            <i class="fab {{ social.name }}"></i>
+                                        </a>
+                                    </li>
+                                    {% endif %}
+                                {% endif %}                                    
+                            {% endfor %}
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <span class="copyright">Logos Institute 2022 - Todos los derechos reservados</span>
+        </footer>
+
+        <script src="{% static 'core/js/app-sidebar.js' %}"></script> 
+    </body>
+</html>
