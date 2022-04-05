@@ -71,6 +71,29 @@ body {
     background-color: var(--main-red);
 }
 
+.button a {
+    background-color: var(--main-black);
+    border:           solid 2px var(--main-white);
+    border-radius:    4rem;
+    color:            var(--main-white);
+    display:          block;
+    margin:           4rem auto;
+    padding:          0.6rem 1.4rem;
+    transition:       all 0.1s linear;
+}
+
+.button a:hover {
+    border:    solid 2px var(--complementary-two);
+    color:     var(--complementary-two);
+    transform: scale(1.1);
+}
+
+.button a:active {
+    border:    solid 2px var(--main-white);
+    color:     var(--main-white);
+    transform: scale(0.9);
+}
+
 .clear-link {
     text-decoration: none;
 }
@@ -93,6 +116,22 @@ body {
 
 .display-none {
     display: none;
+}
+
+.direction-row {
+    flex-direction: row;
+}
+
+.direction-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.direction-column {
+    flex-direction: column;
+}
+
+.direction-column-reverse {
+    flex-direction: column-reverse;
 }
 
 .flex-center {
@@ -379,6 +418,124 @@ body {
     /* color:            var(--main-black); */
 }
 
+
+/********************************************************/
+/************************* Home *************************/
+/********************************************************/
+
+.section-home-image-name {
+    background-image:    url('https://d3puay5pkxu9s4.cloudfront.net/academy/imagenes/funnels/courses/img-2.png');
+    background-position: center/center;
+    background-repeat:   no-repeat;
+    background-size:     cover;    
+    height:              100vh;
+    margin:              20rem 0;
+    padding:             0;
+    width:               100%;
+}
+
+.filter-red {
+    background-color: rgba(146, 39, 44, 0.8);
+    color:            var(--main-white);
+}
+
+.filter-green {
+    background-color: rgba(39, 74, 53, 0.8);
+    color:            var(--main-white);
+}
+
+.filter-green-two {
+    background-color: rgba(177, 198, 175, 0.8);
+    color:            var(--main-black);
+}
+
+.section-home-image-filter {
+    align-items:      center;
+    display:          flex;
+    font-size:        var(--ll);
+    height:           100%;
+    flex-direction:   column;
+    justify-content:  center;
+    padding:          4rem 0;
+}
+
+.section-home-text {
+    padding: 0;
+    margin: 0 0 8rem 0;
+    text-align: justify;
+    width: 85%;
+}
+
+.section-home-mosaic {
+    align-items:           center;
+    display:               flex;
+    flex-direction:        column;
+    justify-content:       center;
+    height:                100vh;
+    margin:                20rem 0;
+    padding:               0;
+    width:                 100%;
+}
+
+.section-home-mosaic-row {
+    align-items:           center;
+    display:               flex;
+    justify-content:       center;
+    flex-direction:        row;
+    height:                50vh;
+    margin:                0;
+    padding:               0;
+    width:                 100%;
+}
+
+.section-home-mosaic-row-reverse {
+    align-items:           center;
+    display:               flex;
+    justify-content:       center;
+    flex-direction:        row-reverse;
+    height:                50vh;
+    margin:                0;
+    padding:               0;
+    width:                 100%;
+}
+
+.section-home-mosaic-button {
+    background-color: var(--main-green);
+    color:            var(--main-white);
+    padding:          4rem 2rem;
+    height:           100%;
+    width:            50%;
+}
+
+.section-home-mosaic-text {
+    background-color: var(--main-red);
+    color:            var(--main-white);
+    padding:          4rem;
+    height:           100%;
+    width:            50%;
+}
+
+.section-home-mosaic-name1 {
+    background-image:    url('https://d3puay5pkxu9s4.cloudfront.net/academy/imagenes/funnels/courses/img-2.png');
+    background-position: center/center;
+    background-repeat:   no-repeat;
+    background-size:     cover;    
+    height:              100%;
+    margin:              0;
+    padding:             0;
+    width:               50%;
+}
+
+.section-home-mosaic-name2 {
+    background-image:    url('https://d3puay5pkxu9s4.cloudfront.net/academy/imagenes/funnels/courses/img-2.png');
+    background-position: center/center;
+    background-repeat:   no-repeat;
+    background-size:     cover;    
+    height:              100%;
+    margin:              0;
+    padding:             0;
+    width:               50%;
+}
 
 /******************************************************/
 /************************* Us *************************/

@@ -35,14 +35,15 @@ INSTALLED_APPS = [
     # Apps
     'ckeditor',
     'applications.blog',
-    'applications.core',
     'applications.team',
+    'applications.core',
     # Extended apps
+    'applications.home.apps.HomeConfig',
+    'applications.us.apps.UsConfig',
     'applications.services.apps.ServicesConfig',
+    'applications.testimonials.apps.TestimonialsConfig',
     'applications.faq.apps.FaqConfig',
     'applications.social.apps.SocialConfig',
-    'applications.testimonials.apps.TestimonialsConfig',
-    'applications.us.apps.UsConfig',
 ]
 
 MIDDLEWARE = [
@@ -71,6 +72,7 @@ TEMPLATES = [
                 # Context processor
                 'applications.social.processors.social_dict',
                 'applications.team.processors.team_dict',
+                'applications.home.processors.home_dict',
             ],
         },
     },
