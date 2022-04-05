@@ -1,0 +1,64 @@
+
+    
+.section-home-image-3 {
+    background-image:    url('https://psicologiamonzo.com/wp-content/uploads/2019/03/multiracial-grupo-joven-gente-toma-selfie_1139-1032.jpg');
+    background-position: center/center;
+    background-repeat:   no-repeat;
+    background-size:     cover;    
+    height:              100vh;
+    margin:              2rem 0;
+    padding:             0;
+    width:               100%;
+}
+.section-home-mosaic-1-one {
+    background-image:    url('https://psicologiamonzo.com/wp-content/uploads/2019/03/multiracial-grupo-joven-gente-toma-selfie_1139-1032.jpg');
+    background-position: center/center;
+    background-repeat:   no-repeat;
+    background-size:     cover;    
+    height:              100%;
+    margin:              0;
+    padding:             0;
+    width:               50%;
+}
+        
+.section-home-mosaic-1-two {
+    background-image:    url('https://phantom-marca.unidadeditorial.es/d8c2d13d6f7f0637cce11b8c830b8cfd/resize/1320/f/jpg/assets/multimedia/imagenes/2022/01/31/16436656885236.jpg');
+    background-position: center/center;
+    background-repeat:   no-repeat;
+    background-size:     cover;    
+    height:              100%;
+    margin:              0;
+    padding:             0;
+    width:               50%;
+}
+.section-home-image-2 {
+    background-image:    url('https://phantom-marca.unidadeditorial.es/d8c2d13d6f7f0637cce11b8c830b8cfd/resize/1320/f/jpg/assets/multimedia/imagenes/2022/01/31/16436656885236.jpg');
+    background-position: center/center;
+    background-repeat:   no-repeat;
+    background-size:     cover;    
+    height:              100vh;
+    margin:              2rem 0;
+    padding:             0;
+    width:               100%;
+}
+.section-home-mosaic-4-one {
+    background-image:    url('https://www.muycomputer.com/wp-content/uploads/2019/12/Kali_Linux.jpg');
+    background-position: center/center;
+    background-repeat:   no-repeat;
+    background-size:     cover;    
+    height:              100%;
+    margin:              0;
+    padding:             0;
+    width:               50%;
+}
+        
+.section-home-mosaic-4-two {
+    background-image:    url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmzQS2j44JHSg4V_u1F2J_myNu5l5hhrh0B3U10RVKMoo24Y5XTVk1HwSvNM5tTqexmXo&usqp=CAU');
+    background-position: center/center;
+    background-repeat:   no-repeat;
+    background-size:     cover;    
+    height:              100%;
+    margin:              0;
+    padding:             0;
+    width:               50%;
+}

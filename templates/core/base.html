@@ -26,6 +26,55 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=MuseoModerno:wght@100;200;400;700&family=Ubuntu:wght@300;500&display=swap" rel="stylesheet">
         <title>Logos Institute | {% block title %}{% endblock %}</title>
+
+        {% if request.path == '/' %}
+        <link rel="stylesheet" href="{% static 'core/css/home-styles.css' %}">
+        {% endif %}
+
+
+
+
+
+
+
+            <!-- .section-home-image-name {
+                background-image:    url('https://d3puay5pkxu9s4.cloudfront.net/academy/imagenes/funnels/courses/img-2.png');
+                background-position: center/center;
+                background-repeat:   no-repeat;
+                background-size:     cover;    
+                height:              100vh;
+                margin:              20rem 0;
+                padding:             0;
+                width:               100%;
+            }
+
+            .section-home-mosaic-name1 {
+                background-image:    url('https://d3puay5pkxu9s4.cloudfront.net/academy/imagenes/funnels/courses/img-2.png');
+                background-position: center/center;
+                background-repeat:   no-repeat;
+                background-size:     cover;    
+                height:              100%;
+                margin:              0;
+                padding:             0;
+                width:               50%;
+            }
+
+            .section-home-mosaic-name2 {
+                background-image:    url('https://d3puay5pkxu9s4.cloudfront.net/academy/imagenes/funnels/courses/img-2.png');
+                background-position: center/center;
+                background-repeat:   no-repeat;
+                background-size:     cover;    
+                height:              100%;
+                margin:              0;
+                padding:             0;
+                width:               50%;
+            } -->
+
+
+
+
+
+
     </head>
     <body>
         
@@ -61,6 +110,8 @@
                 </nav>
             </div>
         </header>
+
+        
 
         {% block content %}
         {% endblock %}

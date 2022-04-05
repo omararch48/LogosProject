@@ -141,6 +141,16 @@ body {
     justify-content: center;
 }
 
+.home-title {
+    color:         var(--main-black);
+    display:       block;
+    font-size:     var(--lllll);
+    margin:        4rem auto;
+    margin-top:    16rem;
+    text-align:    center;
+    width:         90%;
+}
+
 .margin-top {
     margin-top: 14vh;
 }
@@ -423,17 +433,6 @@ body {
 /************************* Home *************************/
 /********************************************************/
 
-.section-home-image-name {
-    background-image:    url('https://d3puay5pkxu9s4.cloudfront.net/academy/imagenes/funnels/courses/img-2.png');
-    background-position: center/center;
-    background-repeat:   no-repeat;
-    background-size:     cover;    
-    height:              100vh;
-    margin:              20rem 0;
-    padding:             0;
-    width:               100%;
-}
-
 .filter-red {
     background-color: rgba(146, 39, 44, 0.8);
     color:            var(--main-white);
@@ -472,7 +471,7 @@ body {
     flex-direction:        column;
     justify-content:       center;
     height:                100vh;
-    margin:                20rem 0;
+    margin:                2rem 0;
     padding:               0;
     width:                 100%;
 }
@@ -515,27 +514,7 @@ body {
     width:            50%;
 }
 
-.section-home-mosaic-name1 {
-    background-image:    url('https://d3puay5pkxu9s4.cloudfront.net/academy/imagenes/funnels/courses/img-2.png');
-    background-position: center/center;
-    background-repeat:   no-repeat;
-    background-size:     cover;    
-    height:              100%;
-    margin:              0;
-    padding:             0;
-    width:               50%;
-}
 
-.section-home-mosaic-name2 {
-    background-image:    url('https://d3puay5pkxu9s4.cloudfront.net/academy/imagenes/funnels/courses/img-2.png');
-    background-position: center/center;
-    background-repeat:   no-repeat;
-    background-size:     cover;    
-    height:              100%;
-    margin:              0;
-    padding:             0;
-    width:               50%;
-}
 
 /******************************************************/
 /************************* Us *************************/

@@ -50,9 +50,7 @@ class HomeText(models.Model):
     )
     url = models.URLField(
         verbose_name='Enlace del texto', 
-        max_length=250, 
-        null=True, 
-        blank=True
+        max_length=250,
     )
     order = models.SmallIntegerField(verbose_name='Orden', default=1)
     active = models.CharField(

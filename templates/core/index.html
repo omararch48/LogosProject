@@ -17,44 +17,51 @@
 
     <main>
         
-
-        <section class="section-home-image-name">
-            <div class="section-home-image-filter filter-green-two">
-                <div class="section-home-text">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi facilis similique cumque qui excepturi nesciunt soluta aliquid. Molestiae, eveniet non.
-                    </p>
-                </div>
-                <div class="button">
-                    <a class="clear-link" href="#">Aprieta para conocer más</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="section-home-mosaic">
-
-            <div class="section-home-mosaic-row">
-                <div class="section-home-mosaic-name1"></div>
-                <div class="section-home-mosaic-text flex-center">
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, debitis.
-                    </p>
-                </div>
-            </div>
-
-            <div class="section-home-mosaic-row-reverse">
-                <div class="section-home-mosaic-name2"></div>
-                <div class="section-home-mosaic-button flex-center">
-                    <div class="button">
-                        <a class="clear-link" href="#">Aprieta para conocer más</a>
-                    </div>
-                </div>
-            </div>
-            
-
-
-        </section>
-
-
-
+        
+        {% if home_texts %}
+            {% for text in home_texts %}
+                <h2 class="home-title">
+                    {{ text.name|title }}
+                </h2>
+                {% if text.model == 'mosaic' %}
+                    <section class="section-home-mosaic">
+                        <div class="section-home-mosaic-row">
+                            <div class="section-home-mosaic-{{ text.id }}-one"></div>
+                            <div class="section-home-mosaic-text flex-center">
+                                <p>
+                                    {{ text.description }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="section-home-mosaic-row-reverse">
+                            <div class="section-home-mosaic-{{ text.id }}-two"></div>
+                            <div class="section-home-mosaic-button flex-center">
+                                <div class="button">
+                                    <a class="clear-link" href="{{ text.url }}">{{ text.url_text }}</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                {% else %}
+                    <section class="section-home-image-{{ text.id }}">
+                        {% if text.model == 'image-red' %}
+                        <div class="section-home-image-filter filter-red">
+                        {% elif text.model == 'image-green' %}
+                        <div class="section-home-image-filter filter-green">
+                        {% elif text.model == 'image-green-two' %}
+                        <div class="section-home-image-filter filter-green-two">
+                        {% endif %}
+                            <div class="section-home-text">
+                                <p>
+                                    {{ text.description }}
+                                </p>
+                            </div>
+                            <div class="button">
+                                <a class="clear-link" href="{{ text.url }}">{{ text.url_text }}</a>
+                            </div>
+                        </div>
+                    </section>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
 {% endblock %}
